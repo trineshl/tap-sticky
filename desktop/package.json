@@ -1,0 +1,22 @@
+{
+  "name": "tap_sticky",
+  "version": "1.0.0",
+  "description": "TapSticky is your go-to desktop app for all your note-taking needs, combining the simplicity of traditional sticky notes with powerful, modern features. Whether you're jotting down quick reminders or creating detailed notes, TapSticky makes it effortless and intuitive.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "electron .",
+    "node-start": "node index.js"
+  },
+  "author": "TrineshL",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^30.0.6"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "lodash": "^4.17.21",
+    "sqlite3": "^5.1.7"
+  }
+}

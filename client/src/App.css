@@ -1,0 +1,102 @@
+.RootContainer {
+  height: 100vh;
+  /* width: 100%; */
+  /* overflow: hidden; */
+  /* flex: 1; */
+}
+
+.VBox {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.HBox {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.Flex1 {
+  flex: 1;
+}
+
+.Editor {
+  background-color: blanchedalmond;
+}
+
+.OverFlowAuto {
+  overflow: auto;
+}
+
+.ElectronDraggable {
+  /* Adjust the height according to your design */
+  -webkit-app-region: drag;
+}
+
+.Header {
+  background-color: #ffbe6f;
+
+}
+
+.IconBtn1 {
+  margin: 0 5px;
+  padding: 3px;
+  cursor: pointer;
+  padding: 5px;
+  -webkit-app-region: no-drag;
+}
+
+.IconBtn1:hover {
+  /* opacity: 0.5; */
+  color: #0066CC;
+  /* background-color: #fd981c; */
+}
+
+.FontSizeSmall {
+  font-size: small;
+}
+
+.MainHeader {
+  background-color: rgb(201, 230, 255);
+  padding: 10px 10px 5px 10px;
+}
+
+.MainHeaderText {
+  font-weight: bold;
+}
+
+.MainEditor {
+  background-color: aliceblue;
+}
+
+.CenterAndMiddle {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.NoteItem {
+  border: 1px solid rgb(201, 230, 255);
+  padding: 10px;
+  font-size: small;
+}
+
+.NoteItem:hover {
+  opacity: 0.9;
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+.ql-editor li {
+  /* Adjust the value as needed */
+  margin-left: -25px;
+}
+
+/* CSS to style checked checklist items */
+.ql-editor li[data-list="checked"] {
+  text-decoration: line-through;
+  color: #888;
+  /* Optional: change the color to indicate completion */
+}
