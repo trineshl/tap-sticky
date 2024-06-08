@@ -25,9 +25,7 @@ function setAlwaysOnTop(p_strKey, p_boolAlwaysOnTop) {
 
   const LWindow = OpenedWindowRefs[p_strKey];
 
-  if (!LWindow) {
-    return;
-  }
+  if (!LWindow || LWindow.isDestroyed() === true) return;
 
   //This will make sure that window will always be on top if p_boolAlwaysOnTop=true, else vice versa.
   LWindow.setAlwaysOnTop(p_boolAlwaysOnTop);

@@ -27,6 +27,13 @@ function StickyHeader() {
       />
       <span className='Flex1'></span>
 
+      <IconButton
+        imageIndex={8}
+        additionalCls="IconBtn1 FontSizeSmall"
+        hint="Delete"
+        onClick={() => RestUtils.deleteNoteById(window.electronAppId)}
+      />
+
       <IconButton imageIndex={6} additionalCls="IconBtn1 FontSizeSmall" hint="View all Notes"
         onClick={() => RestUtils.openMainWindow()}
       />

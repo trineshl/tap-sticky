@@ -150,6 +150,19 @@ class RestUtils {
     });
   }
 
+  static deleteNoteById(p_intId) {
+    const LConfirmed = window.confirm('Are you sure you want to delete this note?');
+
+    if (!LConfirmed) {
+      return; // Exit if user cancels the delete action
+    }
+
+    return this.FireCommand({
+      url: 'notes/' + p_intId,
+      method: 'DELETE'
+    });
+  }
+
   static debounce(func, delay, scope) {
     let timeoutId;
 

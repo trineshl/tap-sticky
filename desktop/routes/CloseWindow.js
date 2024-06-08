@@ -17,17 +17,17 @@ router.get('/', (p_request, p_response) => {
   });
 });
 
-function closeWindow(p_strKey) {
+export function closeWindow(p_strKey) {
 
   const LWindow = OpenedWindowRefs[p_strKey];
 
-  if (!LWindow) {
-    return false;
+  if (LWindow && LWindow.isDestroyed() === false) {
+
+    LWindow.close();
+    return true;
   }
 
-  LWindow.close();
-
-  return true;
+  return false;
 }
 
 export default router;

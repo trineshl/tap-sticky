@@ -8,7 +8,7 @@ const FImageObj = {
 	},
 	2: {
 		color: '', //Close Icon
-		className: 'fa-solid fa-x'
+		className: 'fa-solid fa-xmark CROSS_ICON'
 	},
 	3: {
 		className: 'fa-solid fa-bars'
@@ -31,8 +31,6 @@ const FImageObj = {
 		className: 'fas fa-trash'//Trash
 	},
 };
-
-export const TotalImages = () => 2;
 
 class IconMapping extends Component {
 
@@ -68,4 +66,5 @@ class IconMapping extends Component {
 		)
 	}
 }
+
 export default IconMapping;

@@ -86,8 +86,8 @@ class DBBase {
 
   static deleteRecord(tableName, p_intId, p_strIdPropertyName) {
     return new Promise((resolve, reject) => {
-      const sql = `DELETE FROM ${tableName} WHERE ${p_strIdPropertyName} = ?`;
-      DBConnection.run(sql, [p_intId], function (err) {
+      const sql = `DELETE FROM ${tableName} WHERE ${p_strIdPropertyName} = ${p_intId}`;
+      DBConnection.run(sql, function (err) {
         if (err) {
           reject(err);
         } else {

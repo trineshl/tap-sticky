@@ -35,8 +35,7 @@
 }
 
 .Header {
-  background-color: #ffbe6f;
-
+  background: linear-gradient(to top, #ffbe6f, #ffd9ab);
 }
 
 .IconBtn1 {
@@ -49,7 +48,7 @@
 
 .IconBtn1:hover {
   /* opacity: 0.5; */
-  color: #0066CC;
+  color: #0066ccc6;
   /* background-color: #fd981c; */
 }
 
@@ -58,16 +57,12 @@
 }
 
 .MainHeader {
-  background-color: rgb(201, 230, 255);
+  background: linear-gradient(to top, #a0d2ff, #c9e6ff);
   padding: 10px 10px 5px 10px;
 }
 
 .MainHeaderText {
   font-weight: bold;
-}
-
-.MainEditor {
-  background-color: aliceblue;
 }
 
 .CenterAndMiddle {
@@ -87,6 +82,10 @@
   opacity: 0.9;
   background-color: aliceblue;
   cursor: pointer;
+}
+
+.CROSS_ICON {
+  font-size: 16px;
 }
 
 .ql-editor li {

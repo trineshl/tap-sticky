@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import MainHeader from './MainHeader'
 import IconButton from '../IconButton';
 import RestUtils from '../RestUtils';
@@ -7,6 +7,25 @@ import LoadingDiv from '../LoadingDiv';
 function MainShell() {
 
   const [notes, setNotes] = useState([]);
+
+  const getFirst100Chars = useCallback((p_objNote) => {
+    //Parse the JSON object
+    const content = JSON.parse(p_objNote);
+    let LText = '';
+
+    //Iterate through the ops array to extract the text
+    for (let i = 0; i < content?.ops?.length; i++) {
+      if (content.ops[i]?.insert) {
+        LText += content.ops[i]?.insert;
+        if (LText.length >= 100) {
+          return LText.substring(0, 100);
+        }
+      }
+    }
+
+    //If the total length is less than 100, return the whole text
+    return LText?.trim() || <i>&lt;&lt;Empty Note&gt;&gt;</i>;
+  }, []);
 
   useEffect(() => {
     const GetNotes = async () => {
@@ -24,39 +43,36 @@ function MainShell() {
 
     // This event will only fire if the main window is invoked (opened)
     // p_intUpdatedNoteId - is noteId which is updated
-    const handleUpdateData = (p_intUpdatedNoteId, p_objUpdatedNoteData) => {
+    const handleUpdateData = (p_intUpdatedNoteId, p_objUpdatedNoteData, p_strActionCode) => {
 
       p_intUpdatedNoteId = parseInt(p_intUpdatedNoteId);
 
       setNotes(prevNotes => {
 
-        let LNoteUpdated = false;
+        if (p_strActionCode === 'UPDATE') {
+          //here means, user has edited the note..
+          return prevNotes.map(p_objNote => {
 
-        const LNewNotes = prevNotes.map(
-
-          p_objNote => {
-            // console.log(p_objNote.note_id);
             if (p_objNote.note_id !== p_intUpdatedNoteId) {
               return p_objNote;
             }
-
-            LNoteUpdated = true;
 
             return {
               ...p_objNote,
               note_comment: p_objUpdatedNoteData.note_comment || ''
             };
-          }
-        );
-
-        if (LNoteUpdated) {
-
-          //here means, user has edited the note..
-          return LNewNotes;
+          });
         }
 
-        //here means, new note is added
-        return [...prevNotes, { note_id: p_intUpdatedNoteId, ...p_objUpdatedNoteData }];
+        if (p_strActionCode === 'CREATE') {
+          //here means, new note is added
+          return [...prevNotes, { note_id: p_intUpdatedNoteId, ...p_objUpdatedNoteData }];
+        }
+
+        if (p_strActionCode === 'DELETE') {
+          // here means, note is deleted
+          return prevNotes.filter(p_objNote => p_objNote.note_id !== p_intUpdatedNoteId);
+        }
       });
     };
 
@@ -75,8 +91,9 @@ function MainShell() {
   const getNote = (p_objNote) => {
     return <div
       key={p_objNote.note_id}
+      onClick={() => RestUtils.openNewWindow(p_objNote.note_id)}
       className='NoteItem HBox'>
-      {p_objNote.note_comment}
+      {getFirst100Chars(p_objNote.note_comment)}
 
       <span className='Flex1'></span>
 
@@ -85,14 +102,16 @@ function MainShell() {
         additionalCls="IconBtn1 FontSizeSmall"
         hint="Edit"
         onClick={() => RestUtils.openNewWindow(p_objNote.note_id)}
-
       />
 
       <IconButton
         imageIndex={8}
         additionalCls="IconBtn1 FontSizeSmall"
         hint="Delete"
-        onClick={() => { }}
+        onClick={(e) => {
+          e.stopPropagation();
+          RestUtils.deleteNoteById(p_objNote.note_id);
+        }}
       />
     </div>
   };

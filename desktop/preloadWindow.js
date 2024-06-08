@@ -11,7 +11,7 @@ contextBridge.exposeInMainWorld('electron', {
 
   onUpdateData: (callback) => {
 
-    return ipcRenderer.on('onUpdateData', (event, p_intWindowId, p_objUpdatedNoteData) =>
-      callback(p_intWindowId, p_objUpdatedNoteData));
+    return ipcRenderer.on('onUpdateData', (event, p_intWindowId, p_objUpdatedNoteData, p_strActionCode) =>
+      callback(p_intWindowId, p_objUpdatedNoteData, p_strActionCode));
   }
 });

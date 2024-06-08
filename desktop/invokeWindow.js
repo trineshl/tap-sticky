@@ -63,12 +63,19 @@ const removeWindowReference = (p_objWindow) => {
  */
 const getDefaultWindowPositionAndSize = (p_boolIsMainWindow) => {
 
+  const LWindowWidth = 310; // Set your desired window width
+  const LWindowHeight = 320;//; // Set your desired window height
+
+  if (p_boolIsMainWindow) {
+    return {
+      width: 400,
+      height: 600
+    }
+  }
+
   // Get the primary display's work area size
   const LPrimaryDisplay = screen.getPrimaryDisplay();
   const { width: LWidth, height: LHeight } = LPrimaryDisplay.workAreaSize;
-
-  const LWindowWidth = 310; // Set your desired window width
-  const LWindowHeight = p_boolIsMainWindow ? 500 : 320;//; // Set your desired window height
 
   // Calculate the position for bottom-right corner
   const x = LWidth - LWindowWidth;
