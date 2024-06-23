@@ -43,16 +43,16 @@ const holdReferenceWindow = (p_objWindow, p_intWindowId, p_boolIsMainWindow) => 
   return LWindowId;
 };
 
-const removeWindowReference = (p_objWindow) => {
+// const removeWindowReference = (p_objWindow) => {
 
-  const LKey = p_objWindow.customWindowKey;
-  if (!LKey) {
-    return;
-  }
+//   const LKey = p_objWindow.customWindowKey;
+//   if (!LKey) {
+//     return;
+//   }
 
-  //remove the window reference from our local cached, as its destroyed now..
-  delete OpenedWindowRefs[LKey];
-};
+//   //remove the window reference from our local cached, as its destroyed now..
+//   delete OpenedWindowRefs[LKey];
+// };
 
 /**
  * @method getDefaultWindowPositionAndSize
@@ -70,7 +70,7 @@ const getDefaultWindowPositionAndSize = (p_boolIsMainWindow) => {
     return {
       width: 400,
       height: 600
-    }
+    };
   }
 
   // Get the primary display's work area size
@@ -188,6 +188,8 @@ export const createWindow = async (p_boolIsMainWindow, p_intWindowId) => {
   //Create window reference..
   const LWindow = new BrowserWindow({
     ...LLastSetting,
+
+    icon: constants.dirname + '/img/icon.png',
     frame: false, // Hide the title bar
     webPreferences: {
       preload: path.join(constants.dirname, 'preloadWindow.js')
@@ -195,8 +197,8 @@ export const createWindow = async (p_boolIsMainWindow, p_intWindowId) => {
   });
 
   //loads the entry point on client.
-  // LWindow.loadFile('client/index.html?windowId=' + 123);
-  LWindow.loadURL('http://localhost:3000/');
+  // LWindow.loadFile('client/index.html');
+  LWindow.loadURL('http://localhost:5000/');
 
   // Open the DevTools.
   // LWindow.webContents.openDevTools();
