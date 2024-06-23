@@ -7,6 +7,7 @@ import LoadingDiv from '../LoadingDiv';
 function MainShell() {
 
   const [notes, setNotes] = useState([]);
+  const [isAppScreenPaperVisible, setAppScreenPaperVisible] = useState(true);
 
   const getFirst100Chars = useCallback((p_objNote) => {
     //Parse the JSON object
@@ -37,6 +38,11 @@ function MainShell() {
     };
 
     GetNotes();
+
+    //stop screen
+    setTimeout(() => {
+      setAppScreenPaperVisible(false);
+    }, 2000);
   }, []);
 
   useEffect(() => {
@@ -116,13 +122,24 @@ function MainShell() {
     </div>
   };
 
+  const getContent = () => {
+
+    return <div className='VBox Flex1 OverFlowAuto'>
+      {(notes && notes.length > 0) ?
+        (notes.map((p_objRecord) => getNote(p_objRecord))) : emptyDiv()}
+    </div>;
+  };
+
+  const getAppPaper = () => {
+    return <div className='CenterAndMiddle' style={{ margin: '0 0 0 10px' }}>
+      <img alt='Welcome' className='StartScreenPaper' src={RestUtils.getAppImageURL()} />
+    </div>
+  };
+
   return (
     <div className='VBox OverFlowAuto Flex1'>
       <MainHeader />
-      <div className='VBox Flex1 OverFlowAuto'>
-        {(notes && notes.length > 0) ?
-          (notes.map((p_objRecord) => getNote(p_objRecord))) : emptyDiv()}
-      </div>
+      {isAppScreenPaperVisible ? getAppPaper() : getContent()} 
     </div>
   );
 }

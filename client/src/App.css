@@ -57,7 +57,8 @@
 }
 
 .MainHeader {
-  background: linear-gradient(to top, #a0d2ff, #c9e6ff);
+  background: linear-gradient(to top, #ffbe6f, #ffd9ab);
+  /* background: linear-gradient(to top, #a0d2ff, #c9e6ff); */
   padding: 10px 10px 5px 10px;
 }
 
@@ -73,19 +74,40 @@
 }
 
 .NoteItem {
-  border: 1px solid #c9e6ff;
+  border: 0.5px solid #fcf0e2;
   padding: 10px;
   font-size: small;
 }
 
 .NoteItem:hover {
   opacity: 0.9;
-  background-color: aliceblue;
+  background-color: #fcf0e2;
   cursor: pointer;
 }
 
 .CROSS_ICON {
   font-size: 16px;
+}
+
+.StartScreenPaper {
+
+  width: 200px;
+  animation: zoomInOut 2s infinite;
+}
+
+@keyframes zoomInOut {
+
+  0%,
+  100% {
+    width: 200px;
+    /* height: 100px; */
+  }
+
+  50% {
+    width: 250px;
+    /* Increase size by 20px */
+    /* height: 120px; */
+  }
 }
 
 .ql-editor li {

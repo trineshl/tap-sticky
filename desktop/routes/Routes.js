@@ -33,6 +33,10 @@ const Routes = (expressApp) => {
   expressApp.use("/openMainWindow", OpenMainWindow);
 
   expressApp.use(express.static(path.join(constants.dirname, 'client')));
+
+  //Serve static files from the "public" directory
+  expressApp.use('/img', express.static(path.join(constants.dirname, 'img')));
+
   expressApp.get("*", function (req, res) {
 
     res.sendFile(path.resolve(constants.dirname, 'client', 'index.html'));

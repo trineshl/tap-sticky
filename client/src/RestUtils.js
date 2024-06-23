@@ -177,6 +177,9 @@ class RestUtils {
     };
   }
 
+  static getAppImageURL() {
+    return 'http://localhost:5000/img/icon.png';
+  }
 }
 
 export default RestUtils;
