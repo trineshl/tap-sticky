@@ -3,9 +3,12 @@ import fs from 'fs';
 import path from 'path';
 import constants from './constants.js';
 import { getNoteById, updateNoteById } from './classes/Notes.js';
+import isDev from 'electron-is-dev';
+
+const LResourcePath = isDev ? constants.dirname : process.resourcesPath;
 
 //getting the last saved or for saving the last setting cached file path.
-const FWindowConfigPath = path.join(constants.dirname,
+const FWindowConfigPath = path.join(LResourcePath,
   `${constants.USER_CACHE_FOLDER}/${constants.WINDOW_STATE_FILE_NAME}`);
 
 //this will hold all the opened windows reference by key, where key is unique id..

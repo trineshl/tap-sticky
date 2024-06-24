@@ -34,7 +34,7 @@
       "oneClick": false
     },
     "extraResources": [
-      "db"
+      "db", "cache"
     ]
   }
 }
