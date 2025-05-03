@@ -17,11 +17,15 @@ Whether you're jotting down quick reminders or creating detailed notes, TapStick
 - Personal Organization: Ideal for personal organization, from managing daily tasks and reminders to creating shopping lists and brainstorming ideas.
 - Professional Use: Suitable for professionals needing to keep track of meetings, project notes, and important deadlines, enhancing productivity and workflow management.
 
+## Download exe or zip file
+https://github.com/trineshl/tap-sticky/releases/tag/v1.0.1
+
 ## Sample Images
 ![image](https://github.com/user-attachments/assets/bf38dfcf-a707-474e-af11-2e94d4f23936)
 
 ### Pin Icon - Pin your window always on top
-![image](https://github.com/user-attachments/assets/2cac678a-ceee-447a-9a69-545ec4363c42)
+![image](https://github.com/user-attachments/assets/7743342d-6c67-4cc7-9c32-5b1205a4a278)
+
 
 # 🛠️ Local installation
 
