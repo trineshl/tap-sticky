@@ -83,7 +83,7 @@ cd desktop
 ```bash   
 invokeWindow.js -> LWindow.loadURL
 ```
-6. Run the Electron desktop app:
+5. Run the Electron desktop app:
 ```bash
 npm run start
 ```

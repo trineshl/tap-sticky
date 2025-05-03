@@ -27,7 +27,6 @@
   "build": {
     "appId": "com.tapsticky.app",
     "productName": "Tap Sticky",
-    "author": "Trinesh Lokhande <trineshlokhande@gmail.com>",
     "icon": "/img/icon.png",
     "target": "NSIS",
     "nsis": {
