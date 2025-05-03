@@ -66,7 +66,7 @@ const holdReferenceWindow = (p_objWindow, p_intWindowId, p_boolIsMainWindow) => 
  */
 const getDefaultWindowPositionAndSize = (p_boolIsMainWindow) => {
 
-  const LWindowWidth = 310; // Set your desired window width
+  const LWindowWidth = 320; // Set your desired window width
   const LWindowHeight = 320;//; // Set your desired window height
 
   if (p_boolIsMainWindow) {

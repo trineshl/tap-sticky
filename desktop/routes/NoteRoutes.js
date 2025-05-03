@@ -78,6 +78,7 @@ const LUpdateMainWindow = (p_intWindowId, p_objUpdatedNoteData, p_strActionCode)
 router.put('/:id', async (p_request, p_response) => {
 
   const LRequestJSON = p_request.body || {};
+  const canUpdateMainWindow = p_request.headers.canupdatemainwindow;
 
   try {
 
@@ -90,8 +91,11 @@ router.put('/:id', async (p_request, p_response) => {
       note: LNote
     });
 
+    //checking canUpdateMainWindow flag
+    if (canUpdateMainWindow === 'false' || canUpdateMainWindow === false) return;
+
     //let main window know that some window's data is changed.
-    LUpdateMainWindow(LNoteId, LRequestJSON, 'UPDATE')
+    LUpdateMainWindow(LNoteId, LRequestJSON, 'UPDATE');
   }
   catch (p_error) {
     p_response.json({

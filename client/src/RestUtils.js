@@ -26,9 +26,10 @@ class RestUtils {
     const //LMe = this,
       LRequestOptions = {
         method: p_objOptions.method,
-        headers: p_objOptions.headers || {
+        headers: {
           "Content-Type": "application/json",
-          "electron-app-id": (window.electronAppId || '')
+          "electron-app-id": (window.electronAppId || ''),
+          ...(p_objOptions.headers || {})
         },
         body: JSON.stringify(p_objOptions.requestJson),
       };
@@ -132,10 +133,11 @@ class RestUtils {
     });
   }
 
-  static updateNoteById(p_intId, p_objRequestJSON) {
+  static updateNoteById(p_intId, p_objRequestJSON, headers = {}) {
     return this.FireCommand({
       url: 'notes/' + p_intId,
       method: 'PUT',
+      headers,
       requestJson: p_objRequestJSON
     });
   }

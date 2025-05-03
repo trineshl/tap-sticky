@@ -15,14 +15,6 @@ const pvtMiddleWire = async (p_objReq, p_objRes, next) => {
 
 const Routes = (expressApp) => {
 
-  // expressApp.get("/", (p_objReq, p_objRes) => {
-  //   p_objRes.send('{"response": "Welcome to the Tap Sticky APIs."}');
-  // });
-
-  // expressApp.use("/signup", Signup);
-  // expressApp.use("/login", Login);
-  // expressApp.use("/checksession", CheckSession);
-
   //MiddleWire will apply on below commands
   expressApp.use(pvtMiddleWire);
 
@@ -38,11 +30,8 @@ const Routes = (expressApp) => {
   expressApp.use('/img', express.static(path.join(constants.dirname, 'img')));
 
   expressApp.get("*", function (req, res) {
-
     res.sendFile(path.resolve(constants.dirname, 'client', 'index.html'));
   });
-  // expressApp.use("/users", CRUDRouter(Users));
-  // expressApp.use("/projects", ProjectRouter());
 };
 
 export default Routes;

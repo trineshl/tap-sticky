@@ -42,7 +42,7 @@ function MainShell() {
     //stop screen
     setTimeout(() => {
       setAppScreenPaperVisible(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   useEffect(() => {
@@ -117,6 +117,18 @@ function MainShell() {
         onClick={(e) => {
           e.stopPropagation();
           RestUtils.deleteNoteById(p_objNote.note_id);
+        }}
+      />
+
+      <IconButton
+        imageIndex={9}
+        additionalCls="IconBtn1 FontSizeSmall"
+        hint="Clear cached window configs like window size, position, etc."
+        onClick={(e) => {
+          e.stopPropagation();
+          RestUtils.updateNoteById(p_objNote.note_id, {
+            window_config: null
+          }, { Canupdatemainwindow: false });
         }}
       />
     </div>

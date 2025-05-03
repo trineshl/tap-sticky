@@ -30,6 +30,9 @@ const FImageObj = {
 	8: {
 		className: 'fas fa-trash'//Trash
 	},
+	9: {
+		className: 'fa-solid fa-window-restore'//reset last settings
+	}
 };
 
 class IconMapping extends Component {

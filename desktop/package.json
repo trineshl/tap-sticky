@@ -1,6 +1,6 @@
 {
   "name": "tap_sticky",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TapSticky is your go-to desktop app for all your note-taking needs, combining the simplicity of traditional sticky notes with powerful, modern features. Whether you're jotting down quick reminders or creating detailed notes, TapSticky makes it effortless and intuitive.",
   "main": "index.js",
   "type": "module",
@@ -11,7 +11,7 @@
     "build": "electron-builder -p never",
     "deploy": "electron-builder -p always"
   },
-  "author": "TrineshL",
+  "author": "Trinesh Lokhande <trineshlokhande@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "electron": "^31.0.1",
@@ -27,6 +27,7 @@
   "build": {
     "appId": "com.tapsticky.app",
     "productName": "Tap Sticky",
+    "author": "Trinesh Lokhande <trineshlokhande@gmail.com>",
     "icon": "/img/icon.png",
     "target": "NSIS",
     "nsis": {
