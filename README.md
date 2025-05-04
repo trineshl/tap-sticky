@@ -7,6 +7,10 @@ It caters to users who need quick access to notes while maintaining productivity
 
 Whether you're jotting down quick reminders or creating detailed notes, TapSticky makes it effortless and intuitive.
 
+<a href="https://www.buymeacoffee.com/trinesh" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 40px;" >
+</a>
+
 ## ✨ Key Features
 - Pinning Window: TapSticky allows you to pin its window to ensure it remains visible above all other applications, providing constant access to your notes without interruption.
 - Intuitive Interface: The app offers an intuitive user interface that simplifies the creation, editing, and organization of notes, making it easy to jot down quick reminders or develop detailed notes.
